@@ -1,4 +1,43 @@
 1. config/database.php
+# Projeto CRUD em PHP + MySQL
+
+## 🚀 Como rodar no XAMPP
+
+1. **Iniciar o XAMPP**  
+   - Ative **Apache** e **MySQL** no painel de controle.  
+
+2. **Configurar o projeto**  
+   - Coloque a pasta do projeto em:  
+     ```
+     C:\xampp\htdocs\nome_do_projeto
+     ```
+   - Acesse no navegador:  
+     ```
+     http://localhost/nome_do_projeto
+     ```
+
+3. **Banco de Dados**  
+   - Abra [phpMyAdmin](http://localhost/phpmyadmin).  
+   - Crie um banco de dados (ex: `meu_banco`).  
+   - Importe o script SQL que está em:  
+     ```
+     /database/script.sql
+     ```
+
+4. **Configuração de conexão**  
+   - No arquivo `conexao.php`, ajuste os dados:  
+     ```php
+     $host = "localhost";
+     $user = "root";     
+     $pass = "root";         
+     $db   = "meu_banco";
+     ```
+
+5. **Testando o CRUD**  
+   - **Create** → Cadastrar registros.  
+   - **Read** → Listar registros.  
+   - **Update** → Editar registros.  
+   - **Delete** → Excluir registros.  
 
 Este arquivo é responsável pela conexão com o banco de dados.
 
