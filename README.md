@@ -1,3 +1,9 @@
+Alunos:
+Jaison C.
+João G.
+Gabriel V.
+Thiago Thierry
+
 1. config/database.php
 # Projeto CRUD em PHP + MySQL
 
