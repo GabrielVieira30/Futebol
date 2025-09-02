@@ -77,7 +77,6 @@ if($_POST) {
     exit();
 }
 
-// Buscar partida para edição
 $edit_partida = null;
 if($action == 'edit' && !empty($id)) {
     $partida->id = $id;
