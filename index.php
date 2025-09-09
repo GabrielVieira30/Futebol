@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (empty($_SESSION["user_id"])) {
+    header("Location: login_page.php");
+    exit;
+}
+
 include_once 'config/database.php';
 include_once 'models/Time.php';
 include_once 'models/Jogador.php';
@@ -45,6 +51,23 @@ $total_partidas = $partida->count();
                 <i class="fas fa-futbol me-2"></i>
                 Sistema Futebol
             </a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.php">Dashboard</a>
+                <a class="nav-link" href="times.php">Times</a>
+                <a class="nav-link" href="jogadores.php">Jogadores</a>
+                <a class="nav-link" href="partidas.php">Partidas</a>
+                <?php if ($_SESSION["username"] === "admin"): ?>
+                    <a class="nav-link" href="usuarios.php">Usuários</a>
+                <?php endif; ?>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text me-3">
+                    Bem-vindo, <?php echo htmlspecialchars($_SESSION["username"]); ?>!
+                </span>
+                <a href="login_page.php?logout=1" class="btn btn-outline-light btn-sm">
+                    <i class="fas fa-sign-out-alt me-1"></i>Sair
+                </a>
+            </div>
         </div>
     </nav>
 
