@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $_POST["username"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $mysqli->prepare("SELECT pk, username, senha FROM usuarios WHERE username=? AND senha=?");
+    $stmt = $mysqli->prepare("SELECT id, username, senha FROM usuarios WHERE username=? AND senha=?");
     $stmt->bind_param("ss", $user, $pass);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->close();
 
     if ($dados) {
-        $_SESSION["user_id"] = $dados["pk"];
+        $_SESSION["user_id"] = $dados["id"];
         $_SESSION["username"] = $dados["username"];
         header("Location: jogadores.php");
         exit;
